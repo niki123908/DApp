@@ -1,24 +1,26 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container">
       
-            <a class="navbar-brand" href="#">Dating App</a>
+            <a class="navbar-brand" routerLink="/" routerLinkActive="active">Dating App</a>
 
 <!-- nav bar link -->
             <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="accountService.currentUser$ | async">
-                <li class="nav-item">
-                  <a class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link">Link</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link">Disabled</a>
-                </li>
+              <ng-container>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/members" routerLinkActive="active">Match</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/lists" routerLinkActive="active">Lists</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/messages" routerLinkActive="active">Messages</a>
+                  </li>
+              </ng-container>
             </ul>
 <!--  -->
 
 <!-- menu profile -->
-            <div mdbDropdown class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
+            <div mdbDropdown class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
 
               <button
                 class="btn btn-primary dropdown-toggle"
@@ -27,7 +29,7 @@
                 aria-expanded="false"
                 dropdownToggle
                 mdbDropdownToggle>
-                Welcome User
+                Welcome {{user.username | titlecase}}
               </button>
 
               <ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton" *dropdownMenu>
