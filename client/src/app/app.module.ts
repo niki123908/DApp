@@ -29,6 +29,8 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { FileUploadModule } from 'ng2-file-upload';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
 import { DateInputComponent } from './_forms/date-input/date-input.component';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { TimeagoModule } from 'ngx-timeago';
 
 
 @NgModule({
@@ -48,7 +50,7 @@ import { DateInputComponent } from './_forms/date-input/date-input.component';
     MemberEditComponent,
     PhotoEditorComponent,
     TextInputComponent,
-    DateInputComponent
+    DateInputComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,9 @@ import { DateInputComponent } from './_forms/date-input/date-input.component';
     FormsModule,
     SharedModule,
     NgxSpinnerModule,
-    FileUploadModule
+    FileUploadModule,
+    PaginationModule.forRoot(),
+    TimeagoModule.forRoot()
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},

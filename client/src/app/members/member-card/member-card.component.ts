@@ -16,3 +16,4 @@ export class MemberCardComponent implements OnInit {
   }
 
 }
+67;
